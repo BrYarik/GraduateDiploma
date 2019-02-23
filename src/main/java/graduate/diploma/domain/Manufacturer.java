@@ -9,22 +9,28 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
 @Entity
+@Data
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "Categories")
-public class Category {
+@Table(name = "manufacturer")
+public class Manufacturer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     long id;
 
     String name;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "categories", cascade = CascadeType.ALL)
-    List<Manufacturer> manufacturers = new ArrayList<>();
+    @ManyToMany(fetch = FetchType.LAZY)
+    List<Category> categories = new ArrayList<>();
 
-    public Category(String name) {
+    @ManyToOne(fetch = FetchType.LAZY)
+    List<Goods> goods = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    List<Model> models = new ArrayList<>();
+
+    public Manufacturer(String name) {
         this.name = name;
     }
 }

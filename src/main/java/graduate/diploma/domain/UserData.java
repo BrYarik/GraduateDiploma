@@ -2,14 +2,16 @@ package graduate.diploma.domain;
 
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 
 @Data
-@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
-@Table(name = "UsersData")
+@Table(name = "usersData")
 public class UserData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,6 +22,14 @@ public class UserData {
     String email;
     String birthYear;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "userData")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "userData", cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
     User user;
+
+    public UserData(String name, String surname, String email, String birthYear) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.birthYear = birthYear;
+    }
 }
