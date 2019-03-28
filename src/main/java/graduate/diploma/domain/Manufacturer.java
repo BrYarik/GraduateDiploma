@@ -21,13 +21,13 @@ public class Manufacturer {
 
     String name;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "manufacturers")
     List<Category> categories = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "manufacturer")
     List<Goods> goods = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "manufacturer")
     List<Model> models = new ArrayList<>();
 
     public Manufacturer(String name) {

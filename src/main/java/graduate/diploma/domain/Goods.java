@@ -21,11 +21,11 @@ public class Goods {
     int year;
     double price;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "goods", cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "model_id")
     Model model;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "goods", cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "manufacturer_id")
     Manufacturer manufacturer;
 

@@ -21,11 +21,10 @@ public class Model {
 
     String name;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "models", cascade = CascadeType.ALL)
-    @JoinColumn(name = "manufacturer_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     Manufacturer manufacturer;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "model")
     List<Goods> goods = new ArrayList<>();
 
     public Model(String name) {

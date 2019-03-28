@@ -2,7 +2,7 @@ package graduate.diploma.service;
 
 import graduate.diploma.dao.UserDataRepository;
 import graduate.diploma.dao.UserRepository;
-import graduate.diploma.domain.User;
+import graduate.diploma.domain.WebUser;
 import graduate.diploma.domain.UserData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +17,8 @@ public class UserService {
     private UserDataRepository userDataRepository;
 
     @Transactional
-    public void addUser(User user) {
-        userRepository.save(user);
+    public void addUser(WebUser webUser) {
+        userRepository.save(webUser);
     }
 
     @Transactional
@@ -32,18 +32,18 @@ public class UserService {
     }
 
     @Transactional(readOnly = true)
-    public User findByLogin(String login) {
+    public WebUser findByLogin(String login) {
         return userRepository.findByLogin(login);
     }
 
     @Transactional(readOnly = true)
-    public UserData findDataByUser(User user) {
-        return userDataRepository.findByUser(user);
+    public UserData findDataByUser(WebUser webUser) {
+        return userDataRepository.findByWebUser(webUser);
     }
 
     @Transactional(readOnly = true)
     public UserData findDataByLogin(String login) {
-        return userDataRepository.findByUser(userRepository.findByLogin(login));
+        return userDataRepository.findByWebUser(userRepository.findByLogin(login));
     }
 
     @Transactional(readOnly = true)
@@ -53,7 +53,7 @@ public class UserService {
 
     @Transactional(readOnly = true)
     public String findLoginByEmail(String email) {
-        return userDataRepository.findByEmail(email).getUser().getLogin();
+        return userDataRepository.findByEmail(email).getWebUser().getLogin();
     }
 
     @Transactional(readOnly = true)

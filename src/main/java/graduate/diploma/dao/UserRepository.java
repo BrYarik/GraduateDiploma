@@ -1,8 +1,8 @@
 package graduate.diploma.dao;
 
-import graduate.diploma.domain.User;
+import graduate.diploma.domain.WebUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
-    User findByLogin(String login);
+public interface UserRepository extends JpaRepository<WebUser, Long> {
+    WebUser findByLogin(String login);
 }

@@ -21,7 +21,7 @@ public class Category {
 
     String name;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "categories", cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     List<Manufacturer> manufacturers = new ArrayList<>();
 
     public Category(String name) {

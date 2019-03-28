@@ -22,7 +22,7 @@ public class Picture {
 
     Blob[] goodsPictures;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "pictures")
+    @OneToOne(fetch = FetchType.LAZY)
     Goods goods;
 
     public Picture(Goods goods) {

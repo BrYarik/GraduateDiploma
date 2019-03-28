@@ -24,7 +24,7 @@ public class UserData {
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "userData", cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
-    User user;
+    WebUser webUser;
 
     public UserData(String name, String surname, String email, String birthYear) {
         this.name = name;
