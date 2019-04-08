@@ -229,7 +229,8 @@
                                     <input type="email" class="form-control form-control-lg" id="regEmail"
                                            placeholder="example@gmail.com">
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-outline-light bg-dark btn-lg">
+                                <button type="submit" class="btn btn-primary btn-outline-light bg-dark btn-lg"
+                                        onclick="javascript: sendRegInfo()" id="regUser">
                                     Sign up
                                 </button>
                             </form>
@@ -241,5 +242,9 @@
         </nav>
     </div>
     <div class="container" id="main"/>
+
+    <script>
+        // $('#regUser').click(sendRegInfo());
+    </script>
 </body>
 </html>

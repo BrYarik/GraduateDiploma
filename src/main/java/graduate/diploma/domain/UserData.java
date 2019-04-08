@@ -19,17 +19,15 @@ public class UserData {
 
     String name;
     String surname;
-    String email;
     String birthYear;
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "userData", cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     WebUser webUser;
 
-    public UserData(String name, String surname, String email, String birthYear) {
+    public UserData(String name, String surname, String birthYear) {
         this.name = name;
         this.surname = surname;
-        this.email = email;
         this.birthYear = birthYear;
     }
 }

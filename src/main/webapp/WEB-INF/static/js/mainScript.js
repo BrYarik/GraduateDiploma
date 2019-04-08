@@ -63,6 +63,27 @@ function show() {
     $('#main').append(card);
 }
 
+function sendRegInfo() {
+    var userInfo = {
+        'login': document.getElementById('regLogin').value,
+        'password': document.getElementById('regPassword').value,
+        'email': document.getElementById('regEmail').value
+    };
+
+    $.ajax({
+       type: 'PUT',
+       url: '/user/reg',
+       contentType: 'application/json; charset=utf-8',
+       data: JSON.stringify(userInfo),
+
+       success: function (jsondata) {
+           alert(jsondata.toString());
+       }
+    });
+
+    window.location.reload;
+}
+
 function showCategories() {
     var categories = $('<p>some text</p>');
 

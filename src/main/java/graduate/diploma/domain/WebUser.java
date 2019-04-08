@@ -20,6 +20,7 @@ public class WebUser {
 
     String login;
     String password;
+    String email;
 
     @Enumerated(EnumType.STRING)
     UserRoles role;
@@ -33,8 +34,9 @@ public class WebUser {
         this.role = role;
     }
 
-    public WebUser(String login, String password) {
+    public WebUser(String login, String password, String email) {
         this.login = login;
         this.password = password;
+        this.email = email;
     }
 }

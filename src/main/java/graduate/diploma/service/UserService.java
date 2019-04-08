@@ -48,12 +48,12 @@ public class UserService {
 
     @Transactional(readOnly = true)
     public UserData findByEmail(String email) {
-        return userDataRepository.findByEmail(email);
+        return userRepository.findByEmail(email).getUserData();
     }
 
     @Transactional(readOnly = true)
     public String findLoginByEmail(String email) {
-        return userDataRepository.findByEmail(email).getWebUser().getLogin();
+        return userRepository.findByEmail(email).getLogin();
     }
 
     @Transactional(readOnly = true)
